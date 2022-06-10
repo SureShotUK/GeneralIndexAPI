@@ -12,12 +12,20 @@ namespace GeneralIndexAPILibrary
         private readonly HttpClient _gi;
         private AuthorizationTokens _authTokens;
         private IGIRequest _giRequest;
+        private readonly bool _reporting;
 
         public IGIRequest Request { get { return _giRequest; } }
         public GIAPI(HttpMessageReporting HttpReporting)
         {
-            if(HttpReporting == HttpMessageReporting.VERBOSE) _gi = new(new LoggingHandler(new HttpClientHandler()));
-            else _gi = new();
+            if (HttpReporting == HttpMessageReporting.VERBOSE)
+            {
+                _reporting = true;
+                _gi = new(new LoggingHandler(new HttpClientHandler()));
+            }
+            else
+            {
+                _gi = new();
+            }
             _gi.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
         }
@@ -61,7 +69,7 @@ namespace GeneralIndexAPILibrary
 
 
             HttpResponseMessage response = await _gi.SendAsync(message);
-            Console.WriteLine("Refresh response " + response.StatusCode);
+            if(_reporting) Console.WriteLine("Refresh response " + response.StatusCode);
             if (response.StatusCode == HttpStatusCode.OK) _authTokens = JsonConvert.DeserializeObject<AuthorizationTokens>(await response.Content.ReadAsStringAsync());
             return response;
         }

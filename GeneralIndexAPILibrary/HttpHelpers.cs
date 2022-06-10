@@ -31,11 +31,7 @@ namespace GeneralIndexAPILibrary
             {
                 Console.WriteLine(await response.Content.ReadAsStringAsync());
             }
-            //Console.WriteLine($"\nNon-Validated Headers : \n");
-            //foreach (var head in response.Headers.NonValidated)
-            //{
-            //    Console.WriteLine($"\tKey : {head.Key}\n\tValue : {head.Value}");
-            //}
+
             Console.WriteLine();
 
             return response;

@@ -13,6 +13,7 @@ namespace GeneralIndexAPILibrary.Controller
         private readonly GIAPI _client;
         private HttpRequestMessage _message;
         private HttpResponseMessage _response;
+        private readonly bool _reporting;
 
         private RetrieveSymbolVariantsRequest _retrieveSymbolVariantsRequest;
         private RetrieveSingleIndexTimeseriesRequest _retrieveSingleIndexTimeseriesRequest;
@@ -28,6 +29,7 @@ namespace GeneralIndexAPILibrary.Controller
         public GIController(HttpMessageReporting Reporting)
 #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
+            if (Reporting == HttpMessageReporting.VERBOSE) _reporting = true;
             _client = new GIAPI(Reporting);
         }
 
@@ -78,7 +80,7 @@ namespace GeneralIndexAPILibrary.Controller
         {
             _message = new HttpRequestMessage(_retrieveSingleIndexTimeseriesRequest.Method, _retrieveSingleIndexTimeseriesRequest.URL);
             _message.Content = _retrieveSingleIndexTimeseriesRequest.Content;
-            // Console.WriteLine($"\n\nCONTENT : {_retrieveSymbolVariantsRequest.Content.ToString()}\n\n");
+            // if(_reporting) Console.WriteLine($"\n\nCONTENT : {_retrieveSymbolVariantsRequest.Content.ToString()}\n\n");
             _client.AddHeadersAndBearerAuthToMessage(_message);
         }
 
