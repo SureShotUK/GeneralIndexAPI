@@ -6,7 +6,7 @@ This will (hopefully) help those who have a General Index account to start to ma
 
 The code was built to do a specific job for us, I am sharing it to try to help you get a start, I do not work for General Index and therefore have not got time to spend lots of time adding to / updating / perfecting code and this is very much shared on an as is basis with no warranty as to performance.
 
-On performance it is slow!! The API calls are OK but converting the response CSV format into C# is slow as I used a Generic converter that can uses System.Reflection to inpect the Type of the C# object property the value is being assigned to and then converting the string returned in the CSV to that data Type - this is not a quick process when being performed for every value on every row of the CSV - however as stated I built this to do a job for us and it is sufficient at that job and we are not processing massive amounts of data at a time.
+On performance it is slow!! The API calls are OK but converting the response CSV format into C# is slow as I used a Generic converter that uses System.Reflection to inspect the Type of the C# object property the value is being assigned to, and then converting the string returned in the CSV to that data Type - this is not a quick process when being performed for every value on every row of the CSV - however as stated I built this to do a job for us and it is sufficient at that job and we are not processing massive amounts of data at a time.
 
 I have written the code as a Library with a very simple Console program to demonstrate how to use it.
 
