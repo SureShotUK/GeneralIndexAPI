@@ -10,8 +10,10 @@ On performance it is slow!! The API calls are OK but converting the response CSV
 
 I have written the code as a Library with a very simple Console program to demonstrate how to use it.
 
-You need an account with General Index for this to work at all but once you have this put your username and password into the code, or better yet utilise UserSecrets and pass them in as parameters to the LoginAsync method found in the GIAPI class in the Library (rows 31 and 32 in the GIAPI.cs file)
+You need an account with General Index (GI) for this to work at all but once you have this put your username and password into the code, or better yet utilise UserSecrets and pass them in as parameters to the LoginAsync method found in the GIAPI class in the Library (rows 31 and 32 in the GIAPI.cs file)
 
-I will happily answer questions when I have time but only when I have time, this is not a labour of love and this does not pay my bills so responses may well be long in coming, sorry.
+The GI documentation for the API can be found at https://docs.g-x.co and if you want any information regarding their service or you want to get an account you can email them at support@general-index.com to arrange getting an API key.
+
+I will happily answer questions regarding the code in this repository when I have time, but only when I have time, this is not a labour of love and this does not pay my bills so responses may well be long in coming, sorry.
 
 Lastly I would genuinely like to hear your feedback, as you are here you are probably a better coder than I am so please feel free to improve and add to this, to help others out.
